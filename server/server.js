@@ -52,6 +52,13 @@ let products = [
 ];
 
 // RESOURCE POINTS -
+
+app.get("/", (_, res) => {
+  res.json({
+    message: "Server is running!"
+  });
+});
+
 app.get("/current-user", (_, res) => {
   res.json(currentUser);
 });
