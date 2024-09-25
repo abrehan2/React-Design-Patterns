@@ -1,20 +1,24 @@
 // IMPORTS -
-import SplitScreen from "./layout-components/split-screen-components"
+import { people } from "./layout-components/list-and-list-items/data";
+import LargePersonListItem from "./layout-components/list-and-list-items/people/large-person-list-item";
+import SmallPersonListItem from "./layout-components/list-and-list-items/people/small-person-list-item";
+import RegularList from "./layout-components/list-and-list-items/regular-list";
+// import SplitScreen from "./layout-components/split-screen-components";
 
 // COMPONENTS -
 const LeftHandComponent = () => {
-  return <h1 style={{backgroundColor: "green"}}>Left!</h1>
-}
+  return <h1 style={{ backgroundColor: "green" }}>Left!</h1>;
+};
 
 const RightHandComponent = () => {
-  return <h1 style={{backgroundColor: "red"}}>Right!</h1>
-}
+  return <h1 style={{ backgroundColor: "red" }}>Right!</h1>;
+};
 
 export default function App() {
-  return <>
-
-  
-  {/* 
+  return (
+    <>
+      {/* -------------------------------- SPLIT - SCREEN -------------------------------- */}
+      {/* 
   1) 
   <SplitScreen
   left={LeftHandComponent}
@@ -23,12 +27,22 @@ export default function App() {
   rightWeight={3}
   
   /> */}
-
-{/* 2) */}
-  <SplitScreen leftWeight={1} rightWeight={3}>
+      {/* 2) */}
+      {/* <SplitScreen leftWeight={1} rightWeight={3}>
     <LeftHandComponent />
     <RightHandComponent />
-  </SplitScreen>
-
-  </>
+  </SplitScreen> */}
+      {/* -------------------------------- LIST AND LIST ITEMS -------------------------------- */}
+      <RegularList
+        items={people}
+        resourceName={"person"}
+        itemComponent={SmallPersonListItem}
+      />
+      <RegularList
+        items={people}
+        resourceName={"person"}
+        itemComponent={LargePersonListItem}
+      />
+    </>
+  );
 }

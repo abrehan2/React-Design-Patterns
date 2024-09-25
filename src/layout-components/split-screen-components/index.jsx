@@ -23,7 +23,6 @@ export default function SplitScreen({
   return (
     <Container>
       <Pane weight={leftWeight}>{Left}</Pane>
-
       <Pane weight={rightWeight}>{Right}</Pane>
     </Container>
   );
