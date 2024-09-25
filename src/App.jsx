@@ -1,11 +1,11 @@
 // IMPORTS -
-import { people, products } from "./layout-components/list-and-list-items/data";
-import LargePersonListItem from "./layout-components/list-and-list-items/people/large-person-list-item";
-import SmallPersonListItem from "./layout-components/list-and-list-items/people/small-person-list-item";
-import LargeProductListItem from "./layout-components/list-and-list-items/product/large-product-list-item";
-import SmallProductListItem from "./layout-components/list-and-list-items/product/small-product-list-item";
-import RegularList from "./layout-components/list-and-list-items/regular-list";
-import Modal from "./layout-components/Modal";
+import { people, products } from "./components/layout-components/list-and-list-items/data";
+// import LargePersonListItem from "./components/layout-components/list-and-list-items/people/large-person-list-item";
+// import SmallPersonListItem from "./components/layout-components/list-and-list-items/people/small-person-list-item";
+import LargeProductListItem from "./components/layout-components/list-and-list-items/product/large-product-list-item";
+// import SmallProductListItem from "./components/layout-components/list-and-list-items/product/small-product-list-item";
+// import RegularList from "./components/layout-components/list-and-list-items/regular-list";
+import Modal from "./components/layout-components/Modal";
 // import SplitScreen from "./layout-components/split-screen-components";
 
 // COMPONENTS -
@@ -58,9 +58,10 @@ export default function App() {
         itemComponent={LargeProductListItem}
       /> */}
       {/* -------------------------------- MODAL COMPONENT -------------------------------- */}
-      <Modal>
+      {/* <Modal>
         <LargeProductListItem product={products[0]} />
-      </Modal>
+      </Modal> */}
+      {/* -------------------------------- CONTAINER COMPONENT -------------------------------- */}
     </>
   );
 }
