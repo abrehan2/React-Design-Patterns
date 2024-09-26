@@ -16,6 +16,7 @@ import ResourceLoader from "./components/container-components/resource-loader";
 import ProductInfo from "./components/container-components/product-info";
 import DataSourceLoader from "./components/container-components/data-source-loader";
 import axios from "axios";
+import UncontrolledForm from "./components/uncontrolled-components";
 
 // COMPONENTS -
 const LeftHandComponent = () => {
@@ -100,14 +101,14 @@ export default function App() {
 
       {/* 
       3) Data source -
-      */}
-
       <DataSourceLoader
         getDataFunc={getServerData("http://localhost:8000/current-user")}
         resourceName={"user"}
       >
         <UserInfo />
-      </DataSourceLoader>
+      </DataSourceLoader> */}
+      {/* -------------------------------- UNCONTROLLED COMPONENT -------------------------------- */}
+      <UncontrolledForm />
     </>
   );
 }
