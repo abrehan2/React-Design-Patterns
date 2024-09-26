@@ -17,6 +17,7 @@ import ProductInfo from "./components/container-components/product-info";
 import DataSourceLoader from "./components/container-components/data-source-loader";
 import axios from "axios";
 import UncontrolledForm from "./components/uncontrolled-components";
+import ControlledForm from "./components/controlled-components";
 
 // COMPONENTS -
 const LeftHandComponent = () => {
@@ -108,7 +109,9 @@ export default function App() {
         <UserInfo />
       </DataSourceLoader> */}
       {/* -------------------------------- UNCONTROLLED COMPONENT -------------------------------- */}
-      <UncontrolledForm />
+      {/* <UncontrolledForm /> */}
+       {/* -------------------------------- CONTROLLED COMPONENT -------------------------------- */}
+       <ControlledForm />
     </>
   );
 }
