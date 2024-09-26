@@ -14,6 +14,8 @@ import CurrentUserLoader from "./components/container-components/current-user-lo
 import UserInfo from "./components/container-components/user-info";
 import ResourceLoader from "./components/container-components/resource-loader";
 import ProductInfo from "./components/container-components/product-info";
+import DataSourceLoader from "./components/container-components/data-source-loader";
+import axios from "axios";
 
 // COMPONENTS -
 const LeftHandComponent = () => {
@@ -22,6 +24,11 @@ const LeftHandComponent = () => {
 
 const RightHandComponent = () => {
   return <h1 style={{ backgroundColor: "red" }}>Right!</h1>;
+};
+
+const getServerData = (url) => async () => {
+  const response = await axios.get(url);
+  return response.data;
 };
 
 export default function App() {
@@ -70,12 +77,13 @@ export default function App() {
       </Modal> */}
       {/* -------------------------------- CONTAINER COMPONENT -------------------------------- */}
       {/*
-      1)
+      1) Only loads user -
       <CurrentUserLoader>
         <UserInfo />
       </CurrentUserLoader> */}
 
-      {/* 2) */}
+      {/* 
+      2) Dynamic resource API loader -
       <ResourceLoader
         resourceUrl={"http://localhost:8000/users/1"}
         resourceName={"user"}
@@ -88,7 +96,18 @@ export default function App() {
         resourceName={"product"}
       >
         <ProductInfo />
-      </ResourceLoader>
+      </ResourceLoader> */}
+
+      {/* 
+      3) Data source -
+      */}
+
+      <DataSourceLoader
+        getDataFunc={getServerData("http://localhost:8000/current-user")}
+        resourceName={"user"}
+      >
+        <UserInfo />
+      </DataSourceLoader>
     </>
   );
 }

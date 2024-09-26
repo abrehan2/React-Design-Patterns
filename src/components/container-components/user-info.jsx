@@ -1,8 +1,6 @@
 export default function UserInfo({ user }) {
   const { name, age, hairColor, hobbies } = user ?? {};
 
-  console.log("User in user-info: ", user)
-
   return user ? (
     <>
       <h3>{name}</h3>
