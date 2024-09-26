@@ -1,5 +1,8 @@
 // IMPORTS -
-import { people, products } from "./components/layout-components/list-and-list-items/data";
+import {
+  people,
+  products,
+} from "./components/layout-components/list-and-list-items/data";
 import LargePersonListItem from "./components/layout-components/list-and-list-items/people/large-person-list-item";
 import SmallPersonListItem from "./components/layout-components/list-and-list-items/people/small-person-list-item";
 import LargeProductListItem from "./components/layout-components/list-and-list-items/product/large-product-list-item";
@@ -9,6 +12,8 @@ import Modal from "./components/layout-components/Modal";
 import SplitScreen from "./components/layout-components/split-screen-components";
 import CurrentUserLoader from "./components/container-components/current-user-loader";
 import UserInfo from "./components/container-components/user-info";
+import ResourceLoader from "./components/container-components/resource-loader";
+import ProductInfo from "./components/container-components/product-info";
 
 // COMPONENTS -
 const LeftHandComponent = () => {
@@ -64,9 +69,26 @@ export default function App() {
         <LargeProductListItem product={products[0]} />
       </Modal> */}
       {/* -------------------------------- CONTAINER COMPONENT -------------------------------- */}
+      {/*
+      1)
       <CurrentUserLoader>
         <UserInfo />
-      </CurrentUserLoader>
+      </CurrentUserLoader> */}
+
+      {/* 2) */}
+      <ResourceLoader
+        resourceUrl={"http://localhost:8000/users/1"}
+        resourceName={"user"}
+      >
+        <UserInfo />
+      </ResourceLoader>
+
+      <ResourceLoader
+        resourceUrl={"http://localhost:8000/products/1"}
+        resourceName={"product"}
+      >
+        <ProductInfo />
+      </ResourceLoader>
     </>
   );
 }
