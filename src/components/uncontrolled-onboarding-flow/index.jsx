@@ -1,7 +1,7 @@
+// IMPORTS -
 import React from "react";
 
-export default function UncontrolledOnboardingFlow({ children, onFinish }) {
-  const [onboardingData, setOnboardingData] = React.useState({});
+export default function UncontrolledOnboardingFlow({ children }) {
   const [currentIndex, setCurrentIndex] = React.useState(0);
   const childLength = React.Children.toArray(children).length;
   const currentChild = React.Children.toArray(children)[currentIndex];

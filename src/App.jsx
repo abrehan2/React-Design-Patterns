@@ -21,20 +21,21 @@ import UncontrolledForm from "./components/uncontrolled-form";
 import ControlledForm from "./components/controlled-form";
 import ControlledModal from "./components/controlled-modal";
 import UncontrolledOnboardingFlow from "./components/uncontrolled-onboarding-flow";
+import ControlledOnboardingFlow from "./components/controlled-onboarding-flow";
 
 // COMPONENTS -
-const LeftHandComponent = () => {
-  return <h1 style={{ backgroundColor: "green" }}>Left!</h1>;
-};
+// const LeftHandComponent = () => {
+//   return <h1 style={{ backgroundColor: "green" }}>Left!</h1>;
+// };
 
-const RightHandComponent = () => {
-  return <h1 style={{ backgroundColor: "red" }}>Right!</h1>;
-};
+// const RightHandComponent = () => {
+//   return <h1 style={{ backgroundColor: "red" }}>Right!</h1>;
+// };
 
-const getServerData = (url) => async () => {
-  const response = await axios.get(url);
-  return response.data;
-};
+// const getServerData = (url) => async () => {
+//   const response = await axios.get(url);
+//   return response.data;
+// };
 
 const StepOne = ({goToNext, goToPrev}) => <>
 <h1>Step 1</h1>
@@ -54,6 +55,25 @@ const StepThree = ({goToNext, goToPrev}) => <>
 
 export default function App() {
   const [shouldShow, setShouldShow] = React.useState(false);
+  const [currentIndex, setCurrentIndex] = React.useState(0);
+  let childLength = [StepOne, StepTwo, StepThree].length;
+
+  console.log("LSDSD: ", childLength)
+
+  // HANDLERS -
+  const goToNext = () => {
+    if (currentIndex < childLength - 1) {
+      setCurrentIndex(currentIndex + 1);
+    }
+  };
+  
+  const goToPrev = () => {
+    if (currentIndex > 0 || currentIndex == childLength - 1) {
+      setCurrentIndex(currentIndex - 1);
+    }
+  };
+  
+
   return (
     <>
       {/* -------------------------------- SPLIT - SCREEN -------------------------------- */}
@@ -141,12 +161,20 @@ export default function App() {
        </ControlledModal>
        <button onClick={() => setShouldShow(!shouldShow)}>Show Modal</button> */}
       {/* -------------------------------- UNCONTROLLED ONBOARDING FLOW -------------------------------- */}
-
-      <UncontrolledOnboardingFlow>
+      {/* <UncontrolledOnboardingFlow>
         <StepOne />
         <StepTwo />
         <StepThree />
-      </UncontrolledOnboardingFlow>
+      </UncontrolledOnboardingFlow> */}
+      {/* -------------------------------- CONTROLLED ONBOARDING FLOW -------------------------------- */}
+    
+      <ControlledOnboardingFlow currentIndex={currentIndex} onNext={goToNext} onPrev={goToPrev}>
+        <StepOne />
+        <StepTwo />
+        <StepThree />
+      </ControlledOnboardingFlow>
+    
+    
     </>
   );
 }
