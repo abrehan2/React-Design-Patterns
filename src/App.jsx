@@ -1,4 +1,5 @@
 // IMPORTS -
+import React from "react";
 import {
   people,
   products,
@@ -16,10 +17,10 @@ import ResourceLoader from "./components/container-components/resource-loader";
 import ProductInfo from "./components/container-components/product-info";
 import DataSourceLoader from "./components/container-components/data-source-loader";
 import axios from "axios";
-import UncontrolledForm from "./components/uncontrolled-components";
-import ControlledForm from "./components/controlled-components";
+import UncontrolledForm from "./components/uncontrolled-form";
+import ControlledForm from "./components/controlled-form";
 import ControlledModal from "./components/controlled-modal";
-import React from "react";
+import UncontrolledOnboardingFlow from "./components/uncontrolled-onboarding-flow";
 
 // COMPONENTS -
 const LeftHandComponent = () => {
@@ -34,6 +35,22 @@ const getServerData = (url) => async () => {
   const response = await axios.get(url);
   return response.data;
 };
+
+const StepOne = ({goToNext, goToPrev}) => <>
+<h1>Step 1</h1>
+<button onClick={goToNext}>Next</button>
+<button onClick={goToPrev}>Previous</button>
+</>
+const StepTwo = ({goToNext, goToPrev}) => <>
+<h1>Step 2</h1>
+<button onClick={goToNext}>Next</button>
+<button onClick={goToPrev}>Previous</button>
+</>
+const StepThree = ({goToNext, goToPrev}) => <>
+<h1>Step 3</h1>
+<button onClick={goToNext}>Next</button>
+<button onClick={goToPrev}>Previous</button>
+</>
 
 export default function App() {
   const [shouldShow, setShouldShow] = React.useState(false);
@@ -113,17 +130,23 @@ export default function App() {
       </DataSourceLoader> */}
       {/* -------------------------------- UNCONTROLLED COMPONENT -------------------------------- */}
       {/* <UncontrolledForm /> */}
-       {/* -------------------------------- CONTROLLED COMPONENT -------------------------------- */}
-       {/* <ControlledForm /> */}
-       {/* -------------------------------- CONTROLLED MODAL -------------------------------- */}
-       {/* <ControlledModal 
+      {/* -------------------------------- CONTROLLED COMPONENT -------------------------------- */}
+      {/* <ControlledForm /> */}
+      {/* -------------------------------- CONTROLLED MODAL -------------------------------- */}
+      {/* <ControlledModal 
        shouldShow={shouldShow}
        onClose={() => setShouldShow(false)}
        >
         <h1>Hello!</h1>
        </ControlledModal>
        <button onClick={() => setShouldShow(!shouldShow)}>Show Modal</button> */}
-       {/* -------------------------------- UNCONTROLLED ONBOARDING FLOW -------------------------------- */}
+      {/* -------------------------------- UNCONTROLLED ONBOARDING FLOW -------------------------------- */}
+
+      <UncontrolledOnboardingFlow>
+        <StepOne />
+        <StepTwo />
+        <StepThree />
+      </UncontrolledOnboardingFlow>
     </>
   );
 }
