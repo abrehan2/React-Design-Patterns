@@ -8,7 +8,7 @@ import SmallPersonListItem from "./components/layout-components/list-and-list-it
 import LargeProductListItem from "./components/layout-components/list-and-list-items/product/large-product-list-item";
 import SmallProductListItem from "./components/layout-components/list-and-list-items/product/small-product-list-item";
 import RegularList from "./components/layout-components/list-and-list-items/regular-list";
-import Modal from "./components/layout-components/Modal";
+import UncontrolledModal from "./components/layout-components/uncontrolled-modal";
 import SplitScreen from "./components/layout-components/split-screen-components";
 import CurrentUserLoader from "./components/container-components/current-user-loader";
 import UserInfo from "./components/container-components/user-info";
@@ -18,6 +18,8 @@ import DataSourceLoader from "./components/container-components/data-source-load
 import axios from "axios";
 import UncontrolledForm from "./components/uncontrolled-components";
 import ControlledForm from "./components/controlled-components";
+import ControlledModal from "./components/controlled-modal";
+import React from "react";
 
 // COMPONENTS -
 const LeftHandComponent = () => {
@@ -34,6 +36,7 @@ const getServerData = (url) => async () => {
 };
 
 export default function App() {
+  const [shouldShow, setShouldShow] = React.useState(false);
   return (
     <>
       {/* -------------------------------- SPLIT - SCREEN -------------------------------- */}
@@ -111,7 +114,16 @@ export default function App() {
       {/* -------------------------------- UNCONTROLLED COMPONENT -------------------------------- */}
       {/* <UncontrolledForm /> */}
        {/* -------------------------------- CONTROLLED COMPONENT -------------------------------- */}
-       <ControlledForm />
+       {/* <ControlledForm /> */}
+       {/* -------------------------------- CONTROLLED MODAL -------------------------------- */}
+       {/* <ControlledModal 
+       shouldShow={shouldShow}
+       onClose={() => setShouldShow(false)}
+       >
+        <h1>Hello!</h1>
+       </ControlledModal>
+       <button onClick={() => setShouldShow(!shouldShow)}>Show Modal</button> */}
+       {/* -------------------------------- UNCONTROLLED ONBOARDING FLOW -------------------------------- */}
     </>
   );
 }
