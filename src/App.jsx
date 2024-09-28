@@ -189,7 +189,9 @@ export default function App() {
       {/* -------------------------------- HIGHER - ORDER COMPONENTS -------------------------------- */}
       {/* 1) <UserInfoWrapped name={"Rehan"} age={22} hairColor={"Brown"} hobbies={["Sleeping", "Coding"]}/> */}
       {/* <UserInfoLoader food={"Pizza"}/> */}
-      <UserInfoForm />
+      {/* <UserInfoForm /> */}
+      {/* -------------------------------- CUSTOM HOOKS -------------------------------- */}
+      {/* <UserInfo /> */}
     </>
   );
 }

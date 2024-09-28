@@ -12,3 +12,6 @@ React components that do not keep track of their own states. All state is passed
 
 ## Higher-Order Components
 A component that returns another component instead of JSX.
+
+## Custom Hooks
+Special hooks that we define ourselves, and that usually combine the functionality of one or more existing React hooks.
