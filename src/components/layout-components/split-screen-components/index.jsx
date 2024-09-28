@@ -19,7 +19,6 @@ export default function SplitScreen({
 }) {
   const [Left, Right] = children;
 
-  console.log(Left);
   return (
     <Container>
       <Pane weight={leftWeight}>{Left}</Pane>

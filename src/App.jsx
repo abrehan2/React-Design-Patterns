@@ -22,6 +22,8 @@ import ControlledForm from "./components/controlled-form";
 import ControlledModal from "./components/controlled-modal";
 import UncontrolledOnboardingFlow from "./components/uncontrolled-onboarding-flow";
 import ControlledOnboardingFlow from "./components/controlled-onboarding-flow";
+import PrintProps from "./components/higher-order-components/print-props";
+import WithUser from "./components/higher-order-components/with-user";
 
 // COMPONENTS -
 // const LeftHandComponent = () => {
@@ -37,42 +39,52 @@ import ControlledOnboardingFlow from "./components/controlled-onboarding-flow";
 //   return response.data;
 // };
 
-const StepOne = ({goToNext, goToPrev}) => <>
-<h1>Step 1</h1>
-<button onClick={goToNext}>Next</button>
-<button onClick={goToPrev}>Previous</button>
-</>
-const StepTwo = ({goToNext, goToPrev}) => <>
-<h1>Step 2</h1>
-<button onClick={goToNext}>Next</button>
-<button onClick={goToPrev}>Previous</button>
-</>
-const StepThree = ({goToNext, goToPrev}) => <>
-<h1>Step 3</h1>
-<button onClick={goToNext}>Next</button>
-<button onClick={goToPrev}>Previous</button>
-</>
+const StepOne = ({ goToNext, goToPrev }) => (
+  <>
+    <h1>Step 1</h1>
+    <button onClick={goToNext}>Next</button>
+    <button onClick={goToPrev}>Previous</button>
+  </>
+);
+const StepTwo = ({ goToNext, goToPrev }) => (
+  <>
+    <h1>Step 2</h1>
+    <button onClick={goToNext}>Next</button>
+    <button onClick={goToPrev}>Previous</button>
+  </>
+);
+const StepThree = ({ goToNext, goToPrev }) => (
+  <>
+    <h1>Step 3</h1>
+    <button onClick={goToNext}>Next</button>
+    <button onClick={goToPrev}>Previous</button>
+  </>
+);
 
 export default function App() {
   const [shouldShow, setShouldShow] = React.useState(false);
   const [currentIndex, setCurrentIndex] = React.useState(0);
   let childLength = [StepOne, StepTwo, StepThree].length;
 
-  console.log("LSDSD: ", childLength)
+  // HIGHER - ORDER COMPONENT -
+  // const UserInfoWrapped = PrintProps({
+  //   Component: UserInfo
+  // });
+
+  const UserInfoLoader = WithUser(UserInfo, "1");
 
   // HANDLERS -
-  const goToNext = () => {
-    if (currentIndex < childLength - 1) {
-      setCurrentIndex(currentIndex + 1);
-    }
-  };
-  
-  const goToPrev = () => {
-    if (currentIndex > 0 || currentIndex == childLength - 1) {
-      setCurrentIndex(currentIndex - 1);
-    }
-  };
-  
+  // const goToNext = () => {
+  //   if (currentIndex < childLength - 1) {
+  //     setCurrentIndex(currentIndex + 1);
+  //   }
+  // };
+
+  // const goToPrev = () => {
+  //   if (currentIndex > 0 || currentIndex == childLength - 1) {
+  //     setCurrentIndex(currentIndex - 1);
+  //   }
+  // };
 
   return (
     <>
@@ -167,14 +179,15 @@ export default function App() {
         <StepThree />
       </UncontrolledOnboardingFlow> */}
       {/* -------------------------------- CONTROLLED ONBOARDING FLOW -------------------------------- */}
-    
-      <ControlledOnboardingFlow currentIndex={currentIndex} onNext={goToNext} onPrev={goToPrev}>
+
+      {/* <ControlledOnboardingFlow currentIndex={currentIndex} onNext={goToNext} onPrev={goToPrev}>
         <StepOne />
         <StepTwo />
         <StepThree />
-      </ControlledOnboardingFlow>
-    
-    
+      </ControlledOnboardingFlow> */}
+      {/* -------------------------------- HIGHER - ORDER COMPONENTS -------------------------------- */}
+      {/* 1) <UserInfoWrapped name={"Rehan"} age={22} hairColor={"Brown"} hobbies={["Sleeping", "Coding"]}/> */}
+      <UserInfoLoader food={"Pizza"}/>
     </>
   );
 }

@@ -9,3 +9,6 @@ React components that keep track of their own states and release data only when 
 
 ## Controlled Components
 React components that do not keep track of their own states. All state is passed in as props (that is, when we use the useState hook with text inputs)
+
+## Higher-Order Components
+A component that returns another component instead of JSX.

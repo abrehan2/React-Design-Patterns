@@ -1,4 +1,5 @@
-export default function UserInfo({ user }) {
+export default function UserInfo({ food, user }) {
+  console.log(food)
   const { name, age, hairColor, hobbies } = user ?? {};
 
   return user ? (
