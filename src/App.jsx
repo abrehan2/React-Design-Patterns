@@ -25,6 +25,10 @@ import ControlledOnboardingFlow from "./components/controlled-onboarding-flow";
 import PrintProps from "./components/higher-order-components/print-props";
 import WithUser from "./components/higher-order-components/with-user";
 import UserInfoForm from "./components/higher-order-components/user-info-form";
+import RecursiveComponent from "./components/functional-programming/recursive-component";
+import { nestedObj } from "./components/functional-programming/data";
+import { DangerButton } from "./components/functional-programming/composite-component";
+import { SuccessButton } from "./components/functional-programming/partial-apply-component";
 
 // COMPONENTS -
 // const LeftHandComponent = () => {
@@ -192,6 +196,10 @@ export default function App() {
       {/* <UserInfoForm /> */}
       {/* -------------------------------- CUSTOM HOOKS -------------------------------- */}
       {/* <UserInfo /> */}
+      {/* -------------------------------- FUNCTIONAL PROGRAMMING -------------------------------- */}
+      {/* <RecursiveComponent data={nestedObj} /> */}
+      <DangerButton disabled={true}/>
+      <SuccessButton text={"Success"} />
     </>
   );
 }

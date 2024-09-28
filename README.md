@@ -15,3 +15,6 @@ A component that returns another component instead of JSX.
 
 ## Custom Hooks
 Special hooks that we define ourselves, and that usually combine the functionality of one or more existing React hooks.
+
+## Functional Programming
+Functional programming is a way of organizing your code base to minimize mutation and state change in your applications. The functions remain independent of external data, known as pure functions, and you also treat functions as first-class citizens.
