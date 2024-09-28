@@ -1,15 +1,17 @@
 // IMPORTS -
 import express from "express";
-import cors from "cors"
+import cors from "cors";
 
 const app = express();
 
 // MIDDLEWARES -
 app.use(express.json());
-app.use(cors({
-  origin: "http://localhost:5173",
-  methods: ['GET', 'PUT', 'POST', 'DELETE']
-}))
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    methods: ["GET", "PUT", "POST", "DELETE"],
+  })
+);
 
 // SEEDER -
 let currentUser = {
@@ -60,7 +62,7 @@ let products = [
 
 app.get("/", (_, res) => {
   res.json({
-    message: "Server is running!"
+    message: "Server is running!",
   });
 });
 
@@ -70,7 +72,6 @@ app.get("/current-user", (_, res) => {
 
 app.get("/users/:id", (req, res) => {
   const { id } = req.params;
-  console.log(id)
   res.json(users.find((user) => user.id == id));
 });
 

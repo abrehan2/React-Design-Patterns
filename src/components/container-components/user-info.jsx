@@ -18,3 +18,4 @@ export default function UserInfo({ food, user }) {
     <p>Loading...</p>
   );
 }
+

@@ -24,6 +24,7 @@ import UncontrolledOnboardingFlow from "./components/uncontrolled-onboarding-flo
 import ControlledOnboardingFlow from "./components/controlled-onboarding-flow";
 import PrintProps from "./components/higher-order-components/print-props";
 import WithUser from "./components/higher-order-components/with-user";
+import UserInfoForm from "./components/higher-order-components/user-info-form";
 
 // COMPONENTS -
 // const LeftHandComponent = () => {
@@ -71,7 +72,7 @@ export default function App() {
   //   Component: UserInfo
   // });
 
-  const UserInfoLoader = WithUser(UserInfo, "1");
+  // const UserInfoLoader = WithUser(UserInfo, "1");
 
   // HANDLERS -
   // const goToNext = () => {
@@ -187,7 +188,8 @@ export default function App() {
       </ControlledOnboardingFlow> */}
       {/* -------------------------------- HIGHER - ORDER COMPONENTS -------------------------------- */}
       {/* 1) <UserInfoWrapped name={"Rehan"} age={22} hairColor={"Brown"} hobbies={["Sleeping", "Coding"]}/> */}
-      <UserInfoLoader food={"Pizza"}/>
+      {/* <UserInfoLoader food={"Pizza"}/> */}
+      <UserInfoForm />
     </>
   );
 }
